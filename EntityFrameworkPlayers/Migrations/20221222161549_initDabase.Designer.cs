@@ -3,6 +3,7 @@ using EntityFrameworkPlayers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkPlayers.Migrations
 {
     [DbContext(typeof(TeamContext))]
-    partial class TeamContextModelSnapshot : ModelSnapshot
+    [Migration("20221222161549_initDabase")]
+    partial class initDabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,13 +40,13 @@ namespace EntityFrameworkPlayers.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PartiteVinte")
+                        .HasColumnType("int");
+
                     b.Property<int>("PlayedGames")
                         .HasColumnType("int");
 
                     b.Property<int>("Score")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WonGames")
                         .HasColumnType("int");
 
                     b.HasKey("PlayerID");

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EntityFrameworkPlayers
     {
-    [Table("player")]
+    [Table("Player")]
     [Index(nameof(PlayerID), IsUnique = true)]
     public class Player
         {
@@ -19,8 +19,8 @@ namespace EntityFrameworkPlayers
         public string Nome { get; set; }
         [Required]
         public string Cognome { get; set; }
-        public string Score { get; set; }
-        public string PartiteGiocate { get; set; }
-        public string PartiteVinte { get; set; }
+        public int Score { get; set; }
+        public int PlayedGames { get; set; }
+        public int WonGames { get; set; }
         }
     }

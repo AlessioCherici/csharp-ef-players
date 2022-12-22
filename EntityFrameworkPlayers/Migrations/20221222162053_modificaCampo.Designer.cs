@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkPlayers.Migrations
 {
     [DbContext(typeof(TeamContext))]
-    [Migration("20221222143431_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221222162053_modificaCampo")]
+    partial class modificaCampo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,24 +40,21 @@ namespace EntityFrameworkPlayers.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PartiteGiocate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PlayedGames")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PartiteVinte")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Score")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("WonGames")
+                        .HasColumnType("int");
 
                     b.HasKey("PlayerID");
 
                     b.HasIndex("PlayerID")
                         .IsUnique();
 
-                    b.ToTable("player");
+                    b.ToTable("Player");
                 });
 #pragma warning restore 612, 618
         }
